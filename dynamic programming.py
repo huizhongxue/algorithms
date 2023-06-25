@@ -1,14 +1,15 @@
-def canSum(n, list, memo = {}):
+def howSum(n, list, memo = {}):
+    memo[0] = []
     if n in memo: return memo[n]
-    if n == 0: return True
-    if n < 0: return False
+    if n < 0: return None
     for x in list:
-        if (canSum(n-x, list, memo) == True): 
-            memo[n] = True
-            return True
-    memo[n] = False
-    return False
+        if (howSum(n-x, list, memo) != None): 
+            memo[n] = memo[n-x]
+            memo[n].append(x)
+            return memo[n]
+    memo[n] = None
+    return None
 
 
-print(canSum(7, [2, 4], {}))
-print(canSum(7, [5, 3, 4, 7], {}))
+print(howSum(7, [2, 4], {}))
+print(howSum(7, [5, 3, 4, 7], {}))
