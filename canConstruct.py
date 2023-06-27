@@ -45,17 +45,21 @@ print(canConstruct('eeeeeeeeeeeeeeeeeeeeeeeeeef', ['e', 'ee', 'eee', 'eeee', 'ee
 # allConstruct
 def allConstruct(phrase, list, memo = {}):
     if phrase in memo: return memo[phrase]
-    if phrase == '': return []
+    if phrase == '': return [[]]
 
-    ways = []
+    result = []
 
     for word in list:
         if len(phrase) >= len(word) and phrase[:len(word)] == word:
-            if allConstruct(phrase[len(word):], list, memo): 
-                ways.append(word)
+            # if the if statement is eneterd, the phrase can be constructed
+            suffixWays = allConstruct(phrase[len(word):], list, memo)
+            for way in suffixWays:
+                way.insert(0, word)
+                result.append(way)
+
+    memo[phrase] = result
+    return result
     
-    memo[phrase] = ways
-    return ways
 
 # countConstruct
 print(allConstruct('purple', ['purp', 'p', 'ur', 'le', 'purpl']))
