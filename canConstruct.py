@@ -13,11 +13,11 @@ def countConstruct(phrase, list, memo = {}):
     return count
 
 # countConstruct
-print(countConstruct('purple', ['purp', 'p', 'ur', 'le', 'purpl']))
-print(countConstruct('abcdef', ['ab', 'abc', 'cd', 'def', 'abcd']))
-print(countConstruct('skateboard', ['bo', 'rd', 'ate', 't', 'ska', 'boar']))
-print(countConstruct('enterapotentpot', ['a', 'p', 'ent', 'enter', 'ot', 'o', 't']))
-print(countConstruct('eeeeeeeeeeeeeeeeeeeeeeeeeef', ['e', 'ee', 'eee', 'eeee', 'eeeee', 'eeeeee']))
+# print(countConstruct('purple', ['purp', 'p', 'ur', 'le', 'purpl']))
+# print(countConstruct('abcdef', ['ab', 'abc', 'cd', 'def', 'abcd']))
+# print(countConstruct('skateboard', ['bo', 'rd', 'ate', 't', 'ska', 'boar']))
+# print(countConstruct('enterapotentpot', ['a', 'p', 'ent', 'enter', 'ot', 'o', 't']))
+# print(countConstruct('eeeeeeeeeeeeeeeeeeeeeeeeeef', ['e', 'ee', 'eee', 'eeee', 'eeeee', 'eeeeee']))
 
 
 # canConstruct
@@ -36,10 +36,10 @@ def canConstruct(phrase, list, memo = {}):
 
 
 # canConstruct
-print(canConstruct('abcdef', ['ab', 'abc', 'cd', 'def', 'abcd']))
-print(canConstruct('skateboard', ['bo', 'rd', 'ate', 't', 'ska', 'boar']))
-print(canConstruct('enterapotentpot', ['a', 'p', 'ent', 'enter', 'ot', 'o', 't']))
-print(canConstruct('eeeeeeeeeeeeeeeeeeeeeeeeeef', ['e', 'ee', 'eee', 'eeee', 'eeeee', 'eeeeee']))
+# print(canConstruct('abcdef', ['ab', 'abc', 'cd', 'def', 'abcd']))
+# print(canConstruct('skateboard', ['bo', 'rd', 'ate', 't', 'ska', 'boar']))
+# print(canConstruct('enterapotentpot', ['a', 'p', 'ent', 'enter', 'ot', 'o', 't']))
+# print(canConstruct('eeeeeeeeeeeeeeeeeeeeeeeeeef', ['e', 'ee', 'eee', 'eeee', 'eeeee', 'eeeeee']))
 
 
 # allConstruct
@@ -53,6 +53,7 @@ def allConstruct(phrase, list, memo = {}):
         if len(phrase) >= len(word) and phrase[:len(word)] == word:
             # if the if statement is eneterd, the phrase can be constructed
             suffixWays = allConstruct(phrase[len(word):], list, memo)
+            print(suffixWays)
             for way in suffixWays:
                 way.insert(0, word)
                 result.append(way)
@@ -63,7 +64,8 @@ def allConstruct(phrase, list, memo = {}):
 
 # countConstruct
 print(allConstruct('purple', ['purp', 'p', 'ur', 'le', 'purpl']))
-print(allConstruct('abcdef', ['ab', 'abc', 'cd', 'def', 'abcd']))
-print(allConstruct('skateboard', ['bo', 'rd', 'ate', 't', 'ska', 'boar']))
-print(allConstruct('enterapotentpot', ['a', 'p', 'ent', 'enter', 'ot', 'o', 't']))
-print(allConstruct('eeeeeeeeeeeeeeeeeeeeeeeeeef', ['e', 'ee', 'eee', 'eeee', 'eeeee', 'eeeeee']))
+# print(allConstruct('abcdef', ['ab', 'abc', 'cd', 'def', 'abcd']))
+# print(allConstruct('skateboard', ['bo', 'rd', 'ate', 't', 'ska', 'boar']))
+# print(allConstruct('enterapotentpot', ['a', 'p', 'ent', 'enter', 'ot', 'o', 't']))
+# print(allConstruct('eeeeeeeeeeeeeeeeeeeeeeeeeef', ['e', 'ee', 'eee', 'eeee', 'eeeee', 'eeeeee']))
+
